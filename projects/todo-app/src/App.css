@@ -1,0 +1,25 @@
+div>h1 {
+  color: brown;
+  font-size: px;
+}
+
+
+h1{
+  font-size: 40px;
+}
+
+.itemcontainer>div{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+
+.containertext-center{
+  margin-bottom: 50px;
+}
+
+.row{
+  margin-bottom: 20px; 
+}
