@@ -1,0 +1,26 @@
+
+
+/* the css which is present in a particular component can be made module but the css which is present in global should be made in app.css
+*/
+
+.containertext-center{
+  margin-bottom: 50px;
+}
+
+.row{
+  margin-bottom: 20px; 
+}
+
+div>h1 {
+  color: brown;
+  font-size: px;
+}
+
+
+
+.itemcontainer>div{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}

@@ -1,12 +1,4 @@
-div>h1 {
-  color: brown;
-  font-size: px;
-}
 
-
-h1{
-  font-size: 40px;
-}
 
 .itemcontainer>div{
   display: flex;
@@ -16,10 +8,3 @@ h1{
 }
 
 
-.containertext-center{
-  margin-bottom: 50px;
-}
-
-.row{
-  margin-bottom: 20px; 
-}

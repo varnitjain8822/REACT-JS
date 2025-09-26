@@ -1,8 +1,7 @@
+import styles from './Grid2.module.css'
 export default function Grid() {
-
-
   return (
-    <div className="container text-center">
+    <div className="styles.container text-center">
       <div className="row">
         <div className="col">
           <h1>TASKS</h1>
