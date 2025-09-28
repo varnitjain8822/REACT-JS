@@ -1,21 +1,40 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-
-import './App.css'
-import React from 'react'
-import viteLogo from '/vite.svg'
+import React, { useState } from 'react';
+import reactLogo from './assets/react.svg';
+import './App.css';
+import viteLogo from '/vite.svg';
 import Error from './components/Error';
-import Food from './components/Food'
+import Food from './components/Food';
+import Container from './components/Container';
+import Foodinput from './components/Foodinput';
+
 function App() {
+  const [fooditems, setFoodItems] = useState([
+  ]);
 
-  const fooditems = ["dal", "sabji", "roti", "bhindi", "poori", "ghee","roti2"];
-  return <>
-  <h1 className='kg-heading'>hello food</h1>
-  <Error items={fooditems}></Error>
-  <Food items={fooditems}></Food>
-  </>
-    
-};
+  const [text, setText] = useState("hello world");
 
 
-export default App
+ 
+  const handleOnChange = (event) => {
+    if (event.key === "Enter") {
+      const value = event.target.value;
+      console.log(value); 
+      let newitems=[...fooditems,value];
+        setFoodItems(newitems); 
+    }
+  };
+
+
+  return (
+    <>
+      <Container>
+        <h1 className="kg-heading">hello food</h1>
+        <Error items={fooditems} />
+        <Food items={fooditems} />
+        <Foodinput handleOnChange={handleOnChange} />
+      </Container>
+    </>
+  );
+}
+
+export default App;

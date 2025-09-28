@@ -1,0 +1,10 @@
+.display {
+  margin: 10px;
+  width: 90%;        
+  height: 50px;
+  font-size: larger;
+  background: white;
+  border-radius: 5px;
+  text-align: right;
+  padding: 10px;
+}

@@ -1,11 +1,17 @@
 import FoodItem from "./FoodItems";
+import styles from "./Food.module.css";
 
-export default function Food({items}) {
-  return <>
-    <ul className="list-group">
+// passing function via prop
+export default function Food({ items }) {
+  return (
+    <ul className={styles.listgroup} style={{ listStyleType: "none" }}>
       {items.map((item) => (
-        <FoodItem key={item} FoodItem={item}></FoodItem>
+        <FoodItem
+          key={item}
+          item={item}
+          handleFunction={() => console.log(`${item} clicked`)}
+        />
       ))}
     </ul>
-  </>
+  );
 }

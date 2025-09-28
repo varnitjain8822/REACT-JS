@@ -1,0 +1,8 @@
+.container{
+  border : 3px solid black;
+  width:50%;
+  border-radius: solid 1px red;
+  display: flex;
+  flex-direction: column;
+}
+

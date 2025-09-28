@@ -1,0 +1,13 @@
+.calculator {
+  border: 1px solid rgba(0, 0, 0, 0.5); /* fixed rgba */
+  border-radius: 5px;
+  width: 300px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* fixed spelling */
+  padding: 10px;
+}
+
+
+

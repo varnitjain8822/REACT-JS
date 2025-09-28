@@ -1,8 +1,17 @@
 .kg-item {
   background-color: yellow;
-}
+  }
 
 .kg-span {
   color: red;
   font-size: larger;
 }
+
+
+.button{
+  margin-left: 120px;
+  width: 30%;
+  text-align: justify;
+}
+
+
