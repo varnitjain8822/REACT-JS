@@ -13,6 +13,6 @@ export default function FoodItem(props) {
       >
         ON
       </button>
-    </li>
+    </li  >
   );
 }

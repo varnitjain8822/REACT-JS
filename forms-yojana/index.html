@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sarkari Yojana - Senior Women Stipend Application</title>
+  <style>
+    :root{
+      --accent:#0066b3;
+      --muted:#6b7280;
+      --card:#ffffff;
+      --bg:#f3f6fb;
+      --danger:#c0392b;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:linear-gradient(180deg,var(--bg),#eef4fb);
+      padding:28px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#111827;
+    }
+
+    .container{
+      width:100%;
+      max-width:880px;
+      background:var(--card);
+      border-radius:14px;
+      box-shadow:0 10px 30px rgba(13,38,76,0.08);
+      padding:26px;
+    }
+
+    header{display:flex;align-items:center;gap:16px;margin-bottom:12px}
+    .logo{
+      width:64px;height:64px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#004a80);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:18px
+    }
+
+    h1{font-size:20px;margin:0}
+    p.lead{margin:4px 0 18px;color:var(--muted)}
+
+    form{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .full{grid-column:1/-1}
+
+    label{display:block;font-size:13px;margin-bottom:6px}
+    input[type="text"],input[type="date"],input[type="number"],input[type="tel"],select,textarea{
+      width:100%;padding:10px 12px;border:1px solid #e6e9ef;border-radius:8px;font-size:14px
+    }
+
+    .note{font-size:13px;color:var(--muted);margin-top:6px}
+
+    .inline{display:flex;gap:10px}
+
+    .row-center{display:flex;align-items:center;gap:12px}
+
+    .small{font-size:13px;color:var(--muted)}
+
+    .file-input{padding:8px}
+
+    .actions{display:flex;gap:12px;justify-content:flex-end;grid-column:1/-1;margin-top:8px}
+    button{background:var(--accent);color:#fff;border:0;padding:10px 14px;border-radius:10px;font-weight:600;cursor:pointer}
+    button.secondary{background:#fff;color:var(--accent);border:1px solid #dbe7f5}
+
+    .error{color:var(--danger);font-size:13px;margin-top:6px}
+    .success{color:green}
+
+    @media (max-width:720px){
+      form{grid-template-columns:1fr}
+      .logo{display:none}
+    }
+
+    /* small badge for stipend */
+    .stipend-badge{background:#e6f0ff;color:#003b70;padding:6px 10px;border-radius:999px;font-weight:700;font-size:14px}
+
+  </style>
+</head>
+<body>
+  <div class="container" role="main">
+    <header>
+      <div class="logo" aria-hidden>SY</div>
+      <div>
+        <h1>Sarkari Yojana - Senior Women Stipend (₹5,000)</h1>
+        <p class="lead">आवेदन पत्र — 60 वर्ष से ऊपर की महिला लाभार्थियों के लिए मासिक अनुदान ₹5,000</p>
+      </div>
+      <div style="margin-left:auto" class="stipend-badge" aria-hidden>₹5,000 / माह</div>
+    </header>
+
+    <form id="yojanaForm" novalidate>
+      <div class="full">
+        <label for="name">Full Name / पूरा नाम</label>
+        <input id="name" name="name" type="text" required minlength="3" placeholder="e.g. Sita Devi / सीता देवी" />
+        <div class="error" data-for="name"></div>
+      </div>
+
+      <div>
+        <label for="dob">Date of Birth / जन्मतिथि</label>
+        <input id="dob" name="dob" type="date" required />
+        <div class="error" data-for="dob"></div>
+      </div>
+
+      <div>
+        <label for="age">Age / आयु</label>
+        <input id="age" name="age" type="number" readonly aria-readonly="true" placeholder="Auto-calculated" />
+        <div class="small note">आयु 60 वर्ष से कम होने पर आवेदन स्वीकार नहीं होगा।</div>
+        <div class="error" data-for="age"></div>
+      </div>
+
+      <div>
+        <label for="aadhar">Aadhaar Number / आधार संख्या</label>
+        <input id="aadhar" name="aadhar" type="text" inputmode="numeric" pattern="\d{12}" maxlength="12" placeholder="123412341234" />
+        <div class="error" data-for="aadhar"></div>
+      </div>
+
+      <div>
+        <label for="mobile">Mobile Number / मोबाइल</label>
+        <input id="mobile" name="mobile" type="tel" inputmode="tel" pattern="[6-9]\d{9}" maxlength="10" placeholder="10-digit mobile" />
+        <div class="error" data-for="mobile"></div>
+      </div>
+
+      <div class="full">
+        <label for="address">Address / पता</label>
+        <textarea id="address" name="address" rows="3" placeholder="Village / Town, District, State, PIN" required></textarea>
+        <div class="error" data-for="address"></div>
+      </div>
+
+      <div>
+        <label for="bank">Bank Account Number / बैंक खाता नंबर</label>
+        <input id="bank" name="bank" type="text" inputmode="numeric" placeholder="Account number" />
+        <div class="error" data-for="bank"></div>
+      </div>
+
+      <div>
+        <label for="ifsc">IFSC Code</label>
+        <input id="ifsc" name="ifsc" type="text" placeholder="e.g. SBIN0001234" maxlength="11" />
+      </div>
+
+      <div>
+        <label for="marital">Marital Status / वैवाहिक स्थिति</label>
+        <select id="marital" name="marital">
+          <option value="">-- Select --</option>
+          <option>Single / अविवाहित</option>
+          <option>Married / विवाहित</option>
+          <option>Widow / विधवा</option>
+          <option>Divorced / तलाकशुदा</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="documents">Upload Documents (Aadhaar / Bank Passbook) — आवश्यक दस्तावेज़</label>
+        <input id="documents" name="documents" class="file-input" type="file" accept="image/*,.pdf" multiple />
+        <div class="small note">jpg, png, pdf (recommended). Max total size should be handled server-side.</div>
+      </div>
+
+      <div class="full">
+        <label>Declaration / घोषणा</label>
+        <div class="row-center">
+          <input id="declaration" name="declaration" type="checkbox" required />
+          <label for="declaration" class="small">I declare that the information provided is true and I am above 60 years of age. / मैं घोषणा करती हूँ कि ऊपर दी गयी जानकारी सत्य है और मेरी आयु 60 वर्ष से अधिक है।</label>
+        </div>
+        <div class="error" data-for="declaration"></div>
+      </div>
+
+      <div class="actions">
+        <button type="button" class="secondary" onclick="resetForm()">Reset</button>
+        <button type="submit">Submit Application</button>
+      </div>
+
+      <div id="formMessage" class="full" role="status" aria-live="polite"></div>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('yojanaForm');
+    const dob = document.getElementById('dob');
+    const ageInput = document.getElementById('age');
+    const msg = document.getElementById('formMessage');
+
+    function calculateAge(d){
+      if(!d) return null;
+      const dob = new Date(d);
+      const today = new Date();
+      let age = today.getFullYear() - dob.getFullYear();
+      const m = today.getMonth() - dob.getMonth();
+      if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) age--;
+      return age;
+    }
+
+    dob.addEventListener('change', ()=>{
+      const age = calculateAge(dob.value);
+      ageInput.value = age !== null ? age : '';
+      validateField('age');
+    });
+
+    function showError(fieldName, text){
+      const el = document.querySelector(`.error[data-for="${fieldName}"]`);
+      if(el) el.textContent = text;
+    }
+
+    function clearErrors(){
+      document.querySelectorAll('.error').forEach(e=>e.textContent='');
+      msg.textContent='';
+      msg.className='';
+    }
+
+    function validateField(name){
+      const v = form.elements[name];
+      if(!v) return true;
+      let ok = true;
+      let error = '';
+      if(v.required && !v.value){ ok=false; error='This field is required.' }
+
+      if(ok && name==='aadhar' && v.value){ if(!/^\d{12}$/.test(v.value)) { ok=false; error='Aadhaar must be 12 digits.' } }
+      if(ok && name==='mobile' && v.value){ if(!/^[6-9]\d{9}$/.test(v.value)) { ok=false; error='Enter a valid 10-digit mobile starting with 6-9.' } }
+      if(ok && name==='age'){
+        const age = Number(ageInput.value);
+        if(Number.isNaN(age) || age<0){ ok=false; error='Invalid date of birth.' }
+        else if(age < 60){ ok=false; error='Applicant must be 60 years or older.' }
+      }
+
+      if(ok) showError(name,''); else showError(name,error);
+      return ok;
+    }
+
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      clearErrors();
+
+      // Validate required fields
+      const requiredFields = ['name','dob','address','declaration','age'];
+      let allOk = true;
+      requiredFields.forEach(f => { if(!validateField(f)) allOk=false });
+
+      // Additional specific checks
+      validateField('aadhar');
+      validateField('mobile');
+
+      if(!allOk){ msg.textContent='Please fix errors before submitting.'; msg.className='error'; return }
+
+      // Form is valid on client side. In real app submit to server via fetch/XHR.
+      const formData = new FormData(form);
+      formData.set('stipendAmount', '5000');
+
+      // For demo we show success message
+      msg.textContent = 'Application ready to submit. (Demo mode — no network request sent)\nStipend: ₹5,000 per month.';
+      msg.className='success';
+
+      // If you want to actually send, uncomment example below and set your endpoint
+      /*
+      fetch('/api/yojana/apply', {method:'POST', body: formData}).then(r=>r.json()).then(data=>{
+        // handle server response
+      })
+      */
+    });
+
+    function resetForm(){
+      form.reset();
+      ageInput.value='';
+      clearErrors();
+    }
+  </script>
+</body>
+</html>
