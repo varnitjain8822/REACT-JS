@@ -1,6 +1,7 @@
 import twilio from "twilio";
 
-
+const accountSid = "ACc1253f1893fcfbc4d62eb0ac7007877a";
+const authToken = "f90ff9485865fdd57b7b2a46992c2cab";
 const client = new twilio(accountSid, authToken);
 
 const otp = Math.floor(100000 + Math.random() * 900000);
