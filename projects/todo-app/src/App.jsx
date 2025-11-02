@@ -1,36 +1,101 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import List from './components/List'
-import Grid from './components/Grid'
-import Grid2 from './components/Grid2'
-import "./App.css"
-import Welcome from './components/welcome'
+/*import { useState } from "react";
+import "./App.css";
+import List from "./components/List";
+import Grid from "./components/Grid";
+import Grid2 from "./components/Grid2";
+import Welcome from "./components/Welcome";
+import { todotaskcontext } from "./store/todostore";
+
 function App() {
+  const initialtodotask = [
+    { name: "buy chip", date: "2024-08-23" },
+    { name: "dogame", date: "2024-09-23" },
+    { name: "buy milk", date: "2024-08-23" },
+  ];
 
-  const initialtodotask=[{name:'buy chip',date:'23/08/2024'},{name:'dogame',date:'23/09/2024'},{name:'buy milk',date:'23/08/2024'}];
+  const [todotask, settodoitem] = useState(initialtodotask);
 
-  const [todotask,settodoitem] = useState(initialtodotask);
+  // Add new item
+  const onnewitem = (itemName, itemDueDate) => {
+    settodoitem((currValue) => [
+      ...currValue,
+      { name: itemName, date: itemDueDate },
+    ]);
+  };
 
-  const onnewitem = (name,date)=>{
-    console.log(`new item added ${name} and  date:${date}`)
-    const newtodoitem=[...initialtodotask,{name:name,date:date}]
+  // Delete item
+  const handledelete = (itemname) => {
+    const newtodoitem = todotask.filter((item) => item.name !== itemname);
     settodoitem(newtodoitem);
-  }
+  };
 
-  const handledelete=(itemname)=>{
-    console.log(`item deleted:${itemname}`);
-    const newtodoitem=todotask.filter(item=>item.name!==itemname);
-    settodoitem(newtodoitem);
-  }
-  
-  return <div>
-  <center><List/></center>
-  {todotask.length ===0 && <Welcome ></Welcome>}
-  <Grid  onnewitem={onnewitem}/>
-  <div className="itemcontainer">
-  <Grid2 todotask={todotask} handledelete={handledelete}/>
-  </div>
-  </div>
+  return (
+    <todotaskcontext.Provider value={{items:todotask,addnewitem:onnewitem,deleteitem:handledelete}}>
+      <div className="App">
+        <center>
+          <List />
+        </center>
+        <Welcome todotask={todotask} />
+        <Grid onnewitem={onnewitem} />
+        <div className="itemcontainer">
+          <Grid2 handledelete={handledelete} />
+        </div>
+      </div>
+    </todotaskcontext.Provider>
+  );
 }
+
 export default App;
+
+
+*/
+
+
+import { useState } from "react";
+import "./App.css";
+import List from "./components/List";
+import Grid from "./components/Grid";
+import Grid2 from "./components/Grid2";
+import Welcome from "./components/Welcome";
+import { todotaskcontext } from "./store/todostore";
+function App() {
+  const initialtodotask = [
+    { name: "buy chip", date: "2024-08-23" },
+    { name: "dogame", date: "2024-09-23" },
+    { name: "buy milk", date: "2024-08-23" },
+  ];
+
+  const [todotask, settodoitem] = useState(initialtodotask);
+
+  // Add new item
+  const onnewitem = (itemName, itemDueDate) => {
+    settodoitem((currValue) => [
+      ...currValue,
+      { name: itemName, date: itemDueDate },
+    ]);
+  };
+
+  // Delete item
+  const handledelete = (itemname) => {
+    const newtodoitem = todotask.filter((item) => item.name !== itemname);
+    settodoitem(newtodoitem);
+  };
+
+  return (
+    <todotaskcontext.Provider value={{items:todotask,addnewitem:onnewitem,deleteitem:handledelete}}>
+      <div className="App">
+        <center>
+          <List />
+        </center>
+        <Welcome/>
+        <Grid />
+        <div className="itemcontainer">
+          <Grid2  />
+        </div>
+      </div>
+    </todotaskcontext.Provider>
+  );
+}
+
+export default App;
+

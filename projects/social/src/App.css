@@ -1,0 +1,39 @@
+.bigbox{
+  display: flex;
+}
+
+.sidebar{
+  min-width: 20%;
+  min-height: 100vh;
+  background-color: lightgray;
+} 
+
+.header{
+  min-width: 100%;
+  background-color: lightgray;
+}
+
+.footer{
+  min-width: 100%;
+  background-color: lightgray;}
+
+
+.main-content{
+  min-width: 80%;
+  min-height: 100vh;
+}
+
+.postlist{
+  display: flex;
+  margin: 10px;
+  padding: 10px;
+  gap: 10px;
+}
+
+
+.alertmsg{
+  padding: 10px;
+  margin: 10px;
+  margin-left: 0px;
+}
+
