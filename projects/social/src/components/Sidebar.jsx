@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../App.css';
+import { Link } from 'react-router-dom';
+
 
 const Sidebar = ({ selectedtab, settselectedtab }) => { 
   return ( 
@@ -14,8 +15,8 @@ const Sidebar = ({ selectedtab, settselectedtab }) => {
 
       <ul className="nav nav-pills flex-column mb-auto">
         <li className="nav-item" onClick={() => settselectedtab("Home")}>
-          <a 
-            href="#" 
+          <Link
+            to="/" 
             className={`nav-link link-dark ${selectedtab === "Home" ? "active" : ""}`} 
             aria-current="page"
           >
@@ -23,45 +24,44 @@ const Sidebar = ({ selectedtab, settselectedtab }) => {
               <use xlinkHref="#home"></use>
             </svg>
             Home
-          </a>
+          </Link>
         </li>
         <li onClick={() => settselectedtab("Createpost")}>
-          <a 
-            href="#" 
-            className={`nav-link link-dark ${selectedtab === "Dashboard" ? "active" : ""}`}
+          <Link
+            to="/createpost" 
+            className={`nav-link link-dark ${selectedtab === "Createpost" ? "active" : ""}`}
           >
             <svg className="bi me-2" width="16" height="16">
               <use xlinkHref="#speedometer2"></use>
             </svg>
             Createpost
-          </a>
+          </Link>
         </li>
         <li onClick={() => settselectedtab("Orders")}>
-          <a 
-            href="#" 
+          <Link to="#" 
             className={`nav-link link-dark ${selectedtab === "Orders" ? "active" : ""}`}
           >
             <svg className="bi me-2" width="16" height="16">
               <use xlinkHref="#table"></use>
             </svg>
             Orders
-          </a>
+          </Link>
         </li>
         <li onClick={() => settselectedtab("Products")}>
-          <a href="#" className={`nav-link link-dark ${selectedtab === "Products" ? "active" : ""}`}>
+          <Link to="#" className={`nav-link link-dark ${selectedtab === "Products" ? "active" : ""}`}>
             <svg className="bi me-2" width="16" height="16">
               <use xlinkHref="#grid"></use>
             </svg>
             Products
-          </a>
+          </Link>
         </li>
         <li onClick={() => settselectedtab("Customers")}>
-          <a href="#" className={`nav-link link-dark ${selectedtab === "Customers" ? "active" : ""}`}>
+          <Link to ="#" className={`nav-link link-dark ${selectedtab === "Customers" ? "active" : ""}`}>
             <svg className="bi me-2" width="16" height="16">
               <use xlinkHref="#people-circle"></use>
             </svg>
             Customers
-          </a>
+          </Link>
         </li>
       </ul>
 
@@ -88,11 +88,13 @@ const Sidebar = ({ selectedtab, settselectedtab }) => {
           <li><a className="dropdown-item" href="#">Settings</a></li>
           <li><a className="dropdown-item" href="#">Profile</a></li>
           <li><hr className="dropdown-divider" /></li>
+          <li><a className="dropdown-item" href="#">Profile</a></li>
+          <li><hr className="dropdown-divider" /></li>
           <li><a className="dropdown-item" href="#">Sign out</a></li>
         </ul>
       </div>
     </div>
   );
-};
+}
 
 export default Sidebar;

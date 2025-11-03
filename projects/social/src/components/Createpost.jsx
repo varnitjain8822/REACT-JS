@@ -1,4 +1,4 @@
-import { useRef, useContext } from 'react';
+import { useRef, useContext, useNavigate } from 'react';
 import { PostListContext } from '../store/post-list-store.jsx';
 
 const Createpost = () => {
@@ -11,8 +11,7 @@ const Createpost = () => {
   const postReaction = useRef();
 
   const handleSubmit = (event) => {
-    event.preventDefault();
-
+    event.preventDefault(); 
     const newPost = {
       id: postid.current.value.trim(),
       title: postTitle.current.value.trim(),
@@ -36,6 +35,7 @@ const Createpost = () => {
         event.target.reset();
       })
       .catch(err => console.error('Error:', err));
+    
   };
 
   return (
@@ -67,7 +67,9 @@ const Createpost = () => {
 
       <button type="submit" className="btn btn-primary w-100">Submit</button>
     </form>
+
   );
+
 };
 
 export default Createpost;
