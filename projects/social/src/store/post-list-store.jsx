@@ -1,20 +1,7 @@
 import { createContext, useReducer } from "react";
 
 const default_list = [
-  {
-    id: 'p1',
-    title: 'First Post',
-    content: 'This is the content of the first post.',
-    tags: ['news', 'events'],
-    reaction: 5
-  },
-  {
-    id: 'p2',
-    title: 'Second Post',
-    content: 'This is the content of the second post.',
-    tags: ['updates', 'social'],
-    reaction: 3
-  },
+  
 ];
 
 // ✅ Context name must start with capital

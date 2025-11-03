@@ -8,6 +8,7 @@ import Post from './components/Post.jsx';
 import Postlist from './components/Postlist.jsx';
 import PostlistProvider from './store/post-list-store.jsx'; // Capitalized component name
 import Createpost from './components/Createpost.jsx';
+import Spinner from './components/Spinner.jsx';
 
 function App() {
   const [selectedtab, setSelectedtab] = useState('Home');
@@ -24,6 +25,7 @@ function App() {
           
           </div>
           <Footer />
+          <Spinner></Spinner>
         </div>
       </div>
     </PostlistProvider>

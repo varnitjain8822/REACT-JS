@@ -13,24 +13,29 @@ const Createpost = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const newpost = {
+    const newPost = {
       id: postid.current.value.trim(),
       title: postTitle.current.value.trim(),
-      content: postContent.current.value.trim(),
+      body: postContent.current.value.trim(), // ✅ DummyJSON expects "body", not "content"
       tags: postTags.current.value
         .split(',')
         .map(tag => tag.trim())
         .filter(tag => tag !== ''),
-      reaction: parseInt(postReaction.current.value, 10) || 0,
+      reactions: parseInt(postReaction.current.value, 10) || 0, // ✅ DummyJSON expects "reactions"
+      userId: 1, // ✅ required by DummyJSON
     };
 
-    if (!newpost.id || !newpost.title) {
-      alert('Post ID and Title are required!');
-      return;
-    }
-
-    addpost(newpost);
-    event.target.reset(); // ✅ reset form
+    fetch('https://dummyjson.com/posts/add', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(newPost),
+    })
+      .then(res => res.json())
+      .then(data => {
+        addpost(data); // ✅ Add server response
+        event.target.reset();
+      })
+      .catch(err => console.error('Error:', err));
   };
 
   return (
