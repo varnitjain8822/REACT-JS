@@ -1,0 +1,96 @@
+/* Amazon-like clean product card */
+.product-card {
+  border-radius: 16px;
+  overflow: hidden;
+  background: #ffffff;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Image container with zoom effect */
+.image-container {
+  overflow: hidden;
+  background-color: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 220px;
+}
+
+.product-img {
+  max-height: 200px;
+  transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-img {
+  transform: scale(1.1);
+}
+
+/* Product name */
+.card-title {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+
+/* Price style */
+.price-tag {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #222;
+}
+
+/* Add-to-cart button */
+.add-to-cart-btn {
+  background: linear-gradient(135deg, #00b661, #198754);
+  color: white;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 182, 97, 0.3);
+}
+
+.add-to-cart-btn:hover {
+  background: linear-gradient(135deg, #009c56, #157347);
+  box-shadow: 0 4px 12px rgba(0, 182, 97, 0.5);
+  transform: scale(1.05);
+}
+
+/* Disabled button */
+.btn-outline-secondary:disabled {
+  background-color: #e9ecef;
+  border: none;
+  color: #6c757d;
+}
+
+/* Optional Amazon-like tag */
+.product-card::before {
+  content: "Eco Choice 🌿";
+  position: absolute;
+  top: 10px;
+  left: -30px;
+  background: #28a745;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 5px 40px;
+  transform: rotate(-45deg);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.product-card:hover::before {
+  opacity: 1;
+}
+
+
+body {
+  background: url("/eco-background.jpg") no-repeat center center fixed;
+  background-size: cover;
+}

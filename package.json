@@ -1,0 +1,21 @@
+{
+  "name": "react_vj",
+  "version": "1.0.0",
+  "description": "A personal React.js learning repository with hands-on examples, exercises, and mini-projects covering functional components, JSX, props, state, hooks, and more. Documenting progress and experiments while exploring React step by step",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/varnitjain8822/REACT-JS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/varnitjain8822/REACT-JS/issues"
+  },
+  "homepage": "https://github.com/varnitjain8822/REACT-JS#readme"
+}
