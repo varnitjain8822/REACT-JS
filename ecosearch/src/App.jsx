@@ -12,7 +12,6 @@ import Categories from './components/Categories.jsx';
 import Search from './components/Search.jsx';
 import Review from './components/Review.jsx';
 import Slider from './components/Slider.jsx';
-
 export default function App() {
   return (
     <div>

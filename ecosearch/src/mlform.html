@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calories Prediction Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      width: 350px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #4CAF50;
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #45a049;
+    }
+    #result {
+      margin-top: 15px;
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Calories Predictor</h2>
+
+    <label>Steps Walked</label>
+    <input type="number" id="steps" placeholder="Enter steps" />
+
+    <label>Minutes</label>
+    <input type="number" id="minutes" placeholder="Enter minutes" />
+
+    <label>Heart Rate</label>
+    <input type="number" id="heart" placeholder="Enter heart rate" />
+
+    <button onclick="predictCalories()">Predict Calories</button>
+
+    <p id="result"></p>
+  </div>
+
+  <script>
+    async function predictCalories() {
+      const steps = document.getElementById('steps').value;
+      const minutes = document.getElementById('minutes').value;
+      const heart = document.getElementById('heart').value;
+
+      // Dummy formula for frontend preview
+      const fake_prediction = (steps * 0.02) + (minutes * 0.5) + (heart * 0.1);
+
+      document.getElementById('result').innerText =
+        'Estimated Calories Burned: ' + fake_prediction.toFixed(2);
+    }
+  </script>
+</body>
+</html>
